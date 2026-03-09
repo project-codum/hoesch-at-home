@@ -1,0 +1,58 @@
+---
+import curveDivider from '../assets/decorative-elements/curve-divider.svg';
+import { defaultLocale, getStrings, type Locale } from '../i18n';
+
+const currentLocale = (Astro.currentLocale ?? defaultLocale) as Locale;
+const content = getStrings(currentLocale).home;
+const year = new Date().getFullYear();
+const airbnbUrl =
+  (import.meta.env.PUBLIC_AIRBNB_URL as string | undefined) ?? 'https://www.airbnb.de/rooms/16773840';
+---
+
+<footer class="mt-auto bg-[#556e56] text-slate-100">
+  <div class="-mb-px w-full bg-[#fffcf0] leading-none">
+    <img
+      src={curveDivider.src}
+      alt=""
+      aria-hidden="true"
+      class="block h-auto w-full"
+      loading="lazy"
+    />
+  </div>
+  <div class="-mt-px py-10">
+    <div class="container-responsive space-y-6 text-center text-sm">
+    <div class="space-y-3">
+      <p class="text-base font-semibold text-slate-50">{content.footerTagline}</p>
+      <p class="text-slate-100">
+        {content.footerContactLabel}
+        <a
+          class="font-medium text-slate-50 underline-offset-4 transition hover:text-white hover:underline"
+          href="mailto:michael.hoesch@lifebond.de"
+        >
+          michael.hoesch@lifebond.de
+        </a>
+      </p>
+    </div>
+
+    <div class="flex flex-col items-center justify-center gap-3 text-slate-100 sm:flex-row sm:gap-6">
+      <a
+        class="text-sm font-medium tracking-wide text-white underline-offset-4 transition hover:text-white/90 hover:underline"
+        href={airbnbUrl}
+        target="_blank"
+        rel="noreferrer"
+      >
+        {content.footerAirbnbRatingLabel}
+      </a>
+      <span class="hidden h-4 w-px bg-white/30 sm:block" aria-hidden="true"></span>
+      <div class="flex items-center gap-4 text-sm font-semibold text-slate-50">
+        <span>{content.footerImprintLabel}</span>
+        <span>{content.footerPrivacyLabel}</span>
+      </div>
+    </div>
+
+    <p class="text-xs text-slate-200">
+      &copy; {year} Hoesch@Home. {content.footerRightsLabel}
+    </p>
+    </div>
+  </div>
+</footer>

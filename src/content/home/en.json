@@ -1,0 +1,97 @@
+{
+  "metaTitle": "Hoesch@Home",
+  "metaDescription": "Hoesch@Home",
+  "navLanguageToggleLabel": "DE",
+  "navLanguageToggleAria": "Switch to German",
+  "navBookNowLabel": "Book now",
+  "sectionGalleryLabel": "Gallery",
+  "sectionGalleryHeading": "Moments around Hoesch@Home",
+  "sectionGalleryBody": "Warm interiors, open landscapes, and a garden that fills the air with birdsong and fresh herbs.",
+  "sectionGalleryCaptionOne": "Sunlight pouring into the main living room.",
+  "sectionGalleryCaptionTwo": "Outdoor dining shaded by old fruit trees.",
+  "sectionGalleryCaptionThree": "A quiet corner for reading and tea.",
+  "galleryImageAltPrefix": "Hoesch@Home photo",
+  "sliderGalleryAriaLabel": "More photos",
+  "sliderGalleryLabel": "See more",
+  "sectionAmenitiesLabel": "Amenities",
+  "sectionAmenitiesHeading": "Everything here — for everyday life, time away & remote work",
+  "sectionAmenitiesBody": "Whether it is a workation or family time, you will find everything you need for a relaxed stay.",
+  "sectionAmenitiesList": [
+    "High-speed Wi-Fi",
+    "Workspace for remote work",
+    "Smart TV",
+    "Washing machine & dryer",
+    "Children's books & toys",
+    "Baby crib and high chair"
+  ],
+  "sectionAmenitiesHighlight": "Fresh eggs and garden herbs at breakfast.",
+  "sectionAmenitiesPianoAlt": "Piano among the amenities",
+  "sectionOutdoorLabel": "Outdoors",
+  "sectionOutdoorHeading": "Be outside & breathe easy",
+  "sectionOutdoorBody": "The private garden with terrace invites you to live outdoors, unwind, and let the day wind down.",
+  "sectionOutdoorHighlights": [
+    "Large garden",
+    "Open terrace",
+    "Barbecue available",
+    "Trampoline available in summer"
+  ],
+  "sectionEnvironmentLabel": "Surroundings",
+  "sectionEnvironmentHeading": "Nature. City. Balance.",
+  "sectionEnvironmentBody": "Set between Munich, mountains, and lakes, you will find nature experiences with excellent transport links.",
+  "sectionEnvironmentHighlights": [
+    "35 minutes by S-Bahn to Marienplatz",
+    "Public transport within walking distance (10 min)",
+    "Cross-country ski trails nearby in winter",
+    "Ideal base for nature and city trips"
+  ],
+  "sectionOptionalLabel": "Optional",
+  "sectionOptionalHeading": "Good to know",
+  "sectionOptionalBody": "",
+  "sectionOptionalHighlights": [
+    "Free street parking",
+    "Step-free interior (outdoor area has steps)",
+    "Non-smoking accommodation",
+    "Bicycle rental: €10 per day",
+    "Pet: €25 per night / pet"
+  ],
+  "sectionPhilosophyLabel": "Our philosophy",
+  "sectionPhilosophyHeading": "Sustainable & with attention to detail",
+  "sectionPhilosophyBody": "We stand for mindful travel, regional ties, and a thoughtful use of resources.",
+  "sectionPhilosophyHighlights": [
+    "Energy- and water-saving fixtures",
+    "Support with waste sorting",
+    "Homemade products like fresh eggs and jam",
+    "Chickens on the property"
+  ],
+  "sectionRetreatHeading": "Your green retreat",
+  "sectionRetreatBody": "Ideal for switching off, being together, and taking a deep breath.",
+  "sectionRetreatHighlights": [
+    "Up to 8 guests",
+    "3 bedrooms, 2 bathrooms",
+    "Living area with sofa bed",
+    "Fully equipped kitchen"
+  ],
+  "heroEyebrow": "Between city and Alps",
+  "heroHeadline": "Your home in Upper Bavaria",
+  "heroBody": [
+    "For everyone who loves city, countryside, river, mountain, and lake."
+  ],
+  "heroFeatures": [
+    "Up to 8 guests",
+    "3 bedrooms, 2 bathrooms",
+    "Living area with sofa bed"
+  ],
+  "heroPrimaryCtaLabel": "Send booking inquiry",
+  "heroPrimaryCtaHref": "#",
+  "heroSecondaryCtaLabel": "Learn more",
+  "heroSecondaryCtaHref": "#",
+  "heroAlt": "Illustration of a Bavarian country home in a calm setting",
+  "heroSubheadline": "For everyone who loves city, countryside, river, mountain, and lake.",
+  "heroCta": "Send booking inquiry",
+  "footerTagline": "Where city, nature, and calm come together.",
+  "footerContactLabel": "Contact:",
+  "footerAirbnbRatingLabel": "Airbnb rating: ★★★★★ (5 stars)",
+  "footerImprintLabel": "Imprint",
+  "footerPrivacyLabel": "Privacy policy",
+  "footerRightsLabel": "All rights reserved."
+}
