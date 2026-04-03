@@ -5,7 +5,7 @@ import react from '@astrojs/react';
 const nodeEnv = process.env.NODE_ENV ?? 'development';
 
 export default defineConfig({
-  site: 'https://www.hoeschathome.de', // update per deployment
+  site: 'https://stay2.hoeschathome.de', // update per deployment
   integrations: [react()],
   output: 'static',
   i18n: {
