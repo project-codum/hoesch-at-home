@@ -3,9 +3,12 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 
 const nodeEnv = process.env.NODE_ENV ?? 'development';
+const site = process.env.SITE_URL ?? 'https://stay2.hoeschathome.de';
+const base = process.env.BASE_PATH ?? '/';
 
 export default defineConfig({
-  site: 'https://stay2.hoeschathome.de', // update per deployment
+  site,
+  base,
   integrations: [react()],
   output: 'static',
   i18n: {
