@@ -1,0 +1,11 @@
+---
+import { defaultLocale, locales, type Locale } from '../../i18n';
+import LegalPageTemplate from '../../pages-templates/legal/LegalPageTemplate.astro';
+
+export const getStaticPaths = () =>
+  locales.filter((locale) => locale !== defaultLocale).map((locale) => ({ params: { locale } }));
+
+const currentLocale = (Astro.params.locale ?? defaultLocale) as Locale;
+---
+
+<LegalPageTemplate currentLocale={currentLocale} page="privacy" />

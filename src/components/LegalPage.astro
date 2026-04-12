@@ -1,0 +1,38 @@
+---
+import type { LegalPageContent } from '../i18n';
+
+interface Props {
+  content: LegalPageContent;
+}
+
+const { content } = Astro.props;
+---
+
+<main class="min-h-[60vh] bg-[#fff9ee]">
+  <section class="container-responsive py-20">
+    <p class="section-eyebrow">{content.eyebrow}</p>
+    <h1 class="section-title mt-4">{content.heading}</h1>
+    <div class="section-body mt-6 max-w-3xl space-y-8">
+      {
+        content.sections.map((section) => (
+          <section>
+            <h2 class="text-xl font-semibold text-slate-900">{section.heading}</h2>
+            <div class="mt-3 space-y-3">
+              {section.blocks.map((block) =>
+                block.type === 'paragraph' ? (
+                  <p set:html={block.html} />
+                ) : (
+                  <ul class="list-disc space-y-1 pl-6">
+                    {block.items.map((item) => (
+                      <li set:html={item} />
+                    ))}
+                  </ul>
+                ),
+              )}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </section>
+</main>

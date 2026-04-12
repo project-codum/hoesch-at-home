@@ -13,7 +13,36 @@ export type CalendarContent = {
   eyebrow: string;
 };
 
+export type LegalBlock =
+  | {
+      type: 'paragraph';
+      html: string;
+    }
+  | {
+      type: 'list';
+      items: string[];
+    };
+
+export type LegalSection = {
+  heading: string;
+  blocks: LegalBlock[];
+};
+
+export type LegalPageContent = {
+  metaTitle: string;
+  metaDescription?: string;
+  eyebrow: string;
+  heading: string;
+  sections: LegalSection[];
+};
+
+export type LegalContent = {
+  imprint: LegalPageContent;
+  privacy: LegalPageContent;
+};
+
 export type LocaleStrings = {
   home: HomeContent;
   calendar: CalendarContent;
+  legal: LegalContent;
 };

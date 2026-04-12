@@ -10,35 +10,37 @@ interface Props {
     description?: string;
   };
   currentLocale?: Locale;
+  localizedPaths?: Partial<Record<Locale, string | undefined>>;
 }
 
-const { content, currentLocale: currentLocaleProp } = Astro.props;
+const { content, currentLocale: currentLocaleProp, localizedPaths } = Astro.props;
 
 const currentLocale = (currentLocaleProp ?? Astro.currentLocale ?? defaultLocale) as Locale;
 const basePath =
-  import.meta.env.BASE_URL === '/'
-    ? ''
-    : import.meta.env.BASE_URL.replace(/\/$/, '');
+  import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 const normalizedPathname =
   basePath && Astro.url.pathname.startsWith(basePath)
     ? Astro.url.pathname.slice(basePath.length) || '/'
     : Astro.url.pathname;
 const localePattern = new RegExp(`^/(${locales.join('|')})(?=/|$)`);
 const pathWithoutLocale = normalizedPathname.replace(localePattern, '') || '/';
-const pathParam =
-  pathWithoutLocale === '/' ? undefined : pathWithoutLocale.replace(/^\/+/, '');
-const canonicalUrl = getAbsoluteLocaleUrl(currentLocale, pathParam);
-const xDefaultUrl = getAbsoluteLocaleUrl(defaultLocale, pathParam);
+const pathParam = pathWithoutLocale === '/' ? undefined : pathWithoutLocale.replace(/^\/+/, '');
+const currentPathParam = localizedPaths?.[currentLocale] ?? pathParam;
+const canonicalUrl = getAbsoluteLocaleUrl(currentLocale, currentPathParam);
+const xDefaultUrl = getAbsoluteLocaleUrl(
+  defaultLocale,
+  localizedPaths?.[defaultLocale] ?? pathParam,
+);
 const baseUrl = import.meta.env.BASE_URL.endsWith('/')
   ? import.meta.env.BASE_URL
   : `${import.meta.env.BASE_URL}/`;
 const alternateUrls = locales.map((locale) => ({
   locale,
-  href: getAbsoluteLocaleUrl(locale, pathParam),
+  href: getAbsoluteLocaleUrl(locale, localizedPaths?.[locale] ?? pathParam),
 }));
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang={currentLocale}>
   <head>
     <meta charset="UTF-8" />
@@ -47,9 +49,7 @@ const alternateUrls = locales.map((locale) => ({
     <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href={canonicalUrl} />
-    {alternateUrls.map((item) => (
-      <link rel="alternate" hreflang={item.locale} href={item.href} />
-    ))}
+    {alternateUrls.map((item) => <link rel="alternate" hreflang={item.locale} href={item.href} />)}
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     <title>{content.title}</title>
   </head>

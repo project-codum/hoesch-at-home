@@ -1,0 +1,53 @@
+---
+import Layout from '../../layouts/main.astro';
+import NavBar from '../../components/NavBar.astro';
+import LegalPage from '../../components/LegalPage.astro';
+import { defaultLocale, getStrings, type Locale } from '../../i18n';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { getHomeSections } from '../../components/sections/homeSections';
+import { getNavLinks } from '../../lib/navigation';
+import { getAlternateLegalHref, getLegalPath } from '../../lib/legal';
+import type { LegalPageId } from '../../lib/legal';
+
+interface Props {
+  currentLocale?: Locale;
+  page: LegalPageId;
+}
+
+const { currentLocale: currentLocaleProp, page } = Astro.props;
+const currentLocale = (currentLocaleProp ?? Astro.currentLocale ?? defaultLocale) as Locale;
+const strings = getStrings(currentLocale);
+const homeContent = strings.home;
+const legalContent = strings.legal[page];
+const homeHref = getRelativeLocaleUrl(currentLocale);
+const calendarHref = getRelativeLocaleUrl(currentLocale, 'calendar');
+const galleryHref = getRelativeLocaleUrl(currentLocale, 'galerie');
+const alternateLocaleHref = getAlternateLegalHref(currentLocale, page);
+const localizedPaths = {
+  de: getLegalPath('de', page),
+  en: getLegalPath('en', page),
+};
+const sections = getHomeSections(homeContent);
+const sectionLinks = getNavLinks(sections, homeHref);
+const links = [{ label: homeContent.sectionGalleryLabel, href: galleryHref }, ...sectionLinks];
+---
+
+<Layout
+  content={{
+    title: legalContent.metaTitle,
+    description: legalContent.metaDescription,
+  }}
+  currentLocale={currentLocale}
+  localizedPaths={localizedPaths}
+>
+  <NavBar
+    links={links}
+    homeHref={homeHref}
+    calendarHref={calendarHref}
+    alternateLocaleHref={alternateLocaleHref}
+    bookNowLabel={homeContent.navBookNowLabel}
+    languageToggleLabel={homeContent.navLanguageToggleLabel}
+    languageToggleAria={homeContent.navLanguageToggleAria}
+  />
+  <LegalPage content={legalContent} />
+</Layout>
